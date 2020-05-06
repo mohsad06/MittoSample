@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ServiceStack" Version="5.*" />
+    <PackageReference Include="ServiceStack.OrmLite.MySql" Version="5.8.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MittoSample.Logic\MittoSample.Logic.csproj" />
+    <ProjectReference Include="..\MittoSample.ServiceInterface\MittoSample.ServiceInterface.csproj" />
+    <ProjectReference Include="..\MittoSample.ServiceModel\MittoSample.ServiceModel.csproj" />
+  </ItemGroup>
+
+</Project>

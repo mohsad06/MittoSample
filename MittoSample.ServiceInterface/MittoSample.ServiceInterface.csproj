@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ServiceStack" Version="5.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MittoSample.Logic\MittoSample.Logic.csproj" />
+    <ProjectReference Include="..\MittoSample.ServiceModel\MittoSample.ServiceModel.csproj" />
+  </ItemGroup>
+
+</Project>
