@@ -9,7 +9,7 @@ namespace MittoSample.Logic
     {
         Task AddAsync(string receiverNumber, string senderNumber, string text);
 
-        Task<IEnumerable<SMS>> FilterAllAsync(DateTime fromDate, DateTime toDate, int skip, int take);
+        Task<IEnumerable<SMS>> FilterByDateAsync(DateTime fromDate, DateTime toDate, int skip, int take);
 
         Task<IEnumerable<SMSGroupBy>> FilterCountryDayAsync(DateTime fromDate, DateTime toDate, string Countries);
     }

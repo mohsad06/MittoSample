@@ -31,11 +31,11 @@ namespace MittoSample.Logic
             SendSMSDummyImplementation(sms);
         }
 
-        public async Task<IEnumerable<SMS>> FilterAllAsync(DateTime fromDate, DateTime toDate, int skip, int take)
+        public async Task<IEnumerable<SMS>> FilterByDateAsync(DateTime fromDate, DateTime toDate, int skip, int take)
         {
-            IEnumerable<SMS> result = await _smsRepository.GetAllAsync();
+            IEnumerable<SMS> result = await _smsRepository.FilterByDateAsync(fromDate, toDate, skip, take);
 
-            return result.Where(x => x.SendDate >= fromDate && x.SendDate <= toDate).Skip(skip).Take(take);
+            return result;
         }
 
         private async Task ExtractMobileCountryCode(SMS sms)
@@ -76,15 +76,8 @@ namespace MittoSample.Logic
 
         public async Task<IEnumerable<SMSGroupBy>> FilterCountryDayAsync(DateTime fromDate, DateTime toDate, string countries)
         {
-            IEnumerable<SMSGroupBy> result = await _smsRepository.GroupByCountryDayAsync();
+            IEnumerable<SMSGroupBy> result = await _smsRepository.GroupByCountryDayAsync(fromDate, toDate, countries);
 
-            result = result.Where(x => x.SendDate.Date >= fromDate.Date && x.SendDate.Date <= toDate.Date);
-
-            if (!string.IsNullOrEmpty(countries))
-            {
-                var countryList = countries.Split(',');
-                result = result.Where(x => countryList.Contains(x.MobileCountryCode));
-            }
             return result;
         }
     }

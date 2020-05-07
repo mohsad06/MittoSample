@@ -1,4 +1,5 @@
 ﻿using MittoSample.Model;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -8,8 +9,8 @@ namespace MittoSample.Logic.Repository
     {
         Task AddAsync(SMS sms);
 
-        Task<List<SMS>> GetAllAsync();
+        Task<List<SMS>> FilterByDateAsync(DateTime fromDate, DateTime toDate, int skip, int take);
 
-        Task<List<SMSGroupBy>> GroupByCountryDayAsync();
+        Task<IEnumerable<SMSGroupBy>> GroupByCountryDayAsync(DateTime fromDate, DateTime toDate, string countries);
     }
 }

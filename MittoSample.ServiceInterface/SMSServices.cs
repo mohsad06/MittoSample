@@ -26,7 +26,7 @@ namespace MittoSample.ServiceInterface
 
         public async Task<GetSentSMSResponse> Get(GetSentSMS request)
         {
-            var filteredList = await _smsLogic.FilterAllAsync(
+            var filteredList = await _smsLogic.FilterByDateAsync(
                 DateTime.Parse(request.DateTimeFrom),
                 DateTime.Parse(request.DateTimeTo),
                 request.Skip,
