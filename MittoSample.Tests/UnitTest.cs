@@ -1,15 +1,14 @@
-using NUnit.Framework;
-using ServiceStack;
-using ServiceStack.Testing;
+using MittoSample.Model;
 using MittoSample.ServiceInterface;
 using MittoSample.ServiceModel;
-using System.Threading.Tasks;
-using System.Collections.Generic;
+using NUnit.Framework;
+using ServiceStack;
 using ServiceStack.Data;
 using ServiceStack.OrmLite;
-using MittoSample.Logic;
-using MittoSample.ServiceModel.Types;
+using ServiceStack.Testing;
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace MittoSample.Tests
 {

@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="ServiceStack" Version="5.*" />
-    <PackageReference Include="ServiceStack.OrmLite.MySql" Version="5.8.1" />
+    <PackageReference Include="ServiceStack.OrmLite.MySql" Version="5.8.0" />
   </ItemGroup>
 
   <ItemGroup>

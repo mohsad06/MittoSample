@@ -61,8 +61,10 @@ namespace MittoSample
 
 
             //Create database schema and insert default data
-            Database.Create();
-            Database.AddDefaultData();
+            using (var db = container.Resolve<IDbConnectionFactory>().Open())
+            {
+                Database.Create(db);
+            }
         }
     }
 }
