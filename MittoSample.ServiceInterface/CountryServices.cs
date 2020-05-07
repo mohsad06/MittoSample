@@ -1,9 +1,7 @@
 ﻿using MittoSample.Logic;
 using MittoSample.ServiceModel;
 using ServiceStack;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MittoSample.ServiceInterface

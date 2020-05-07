@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MittoSample.ServiceModel\MittoSample.ServiceModel.csproj" />
+    <ProjectReference Include="..\MittoSample.Model\MittoSample.Model.csproj" />
   </ItemGroup>
 
 </Project>

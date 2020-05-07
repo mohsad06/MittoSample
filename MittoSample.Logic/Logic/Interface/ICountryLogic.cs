@@ -1,7 +1,5 @@
-﻿using MittoSample.ServiceModel.Types;
-using System;
+﻿using MittoSample.Model;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MittoSample.Logic

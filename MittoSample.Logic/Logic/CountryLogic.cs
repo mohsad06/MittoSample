@@ -1,5 +1,5 @@
 ﻿using MittoSample.Logic.Repository;
-using MittoSample.ServiceModel.Types;
+using MittoSample.Model;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

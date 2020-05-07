@@ -1,5 +1,5 @@
 ﻿using MittoSample.Logic.Repository;
-using MittoSample.ServiceModel.Types;
+using MittoSample.Model;
 using ServiceStack.Text;
 using System;
 using System.Collections.Generic;
@@ -20,8 +20,10 @@ namespace MittoSample.Logic
             _countryLogic = countryLogic;
         }
 
-        public async Task AddAsync(SMS sms)
+        public async Task AddAsync(string receiverNumber, string senderNumber, string text)
         {
+            var sms = new SMS { Receiver = receiverNumber, Sender = senderNumber, Text = text };
+
             await ExtractMobileCountryCode(sms);
 
             await _smsRepository.AddAsync(sms);

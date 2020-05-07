@@ -1,4 +1,4 @@
-﻿using MittoSample.ServiceModel.Types;
+﻿using MittoSample.Model;
 using ServiceStack.Data;
 using ServiceStack.OrmLite;
 using System;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MittoSample.Logic.Repository
 {
-    internal class SMSRepository : ISMSRepository
+    public class SMSRepository : ISMSRepository
     {
         private IDbConnectionFactory _dbConnectionFactory { get; set; }
 

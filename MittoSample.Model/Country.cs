@@ -1,9 +1,7 @@
 ﻿using ServiceStack.DataAnnotations;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace MittoSample.ServiceModel.Types
+namespace MittoSample.Model
 {
     public class Country
     {

@@ -3,10 +3,11 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MittoSample.Helper;
 using MittoSample.Logic;
 using MittoSample.Logic.Repository;
+using MittoSample.Model;
 using MittoSample.ServiceInterface;
-using MittoSample.ServiceModel.Types;
 using ServiceStack;
 using ServiceStack.Data;
 using ServiceStack.OrmLite;
@@ -57,24 +58,7 @@ namespace MittoSample
             container.RegisterAutoWiredAs<SMSLogic, ISMSLogic>().ReusedWithin(ReuseScope.None);
             container.RegisterAutoWiredAs<CountryLogic, ICountryLogic>().ReusedWithin(ReuseScope.None);
 
-            using (var db = container.Resolve<IDbConnectionFactory>().Open())
-            {
-                if (!db.TableExists<SMS>())
-                    db.CreateTable<SMS>();
-
-                if (!db.TableExists<Country>())
-                {
-                    db.CreateTable<Country>();
-
-                    #region AddDefaultCountries
-
-                    db.Insert(new Country { Name = "Germany", CountryCode = "49", MobileCountryCode = "262", PricePerSMS = 0.055m });
-                    db.Insert(new Country { Name = "Austria", CountryCode = "43", MobileCountryCode = "232", PricePerSMS = 0.053m });
-                    db.Insert(new Country { Name = "Poland", CountryCode = "48", MobileCountryCode = "260", PricePerSMS = 0.032m });
-
-                    #endregion
-                }
-            }
+            Database.Create();
         }
     }
 }

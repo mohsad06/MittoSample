@@ -1,4 +1,4 @@
-﻿using MittoSample.ServiceModel.Types;
+﻿using MittoSample.Model;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -7,7 +7,7 @@ namespace MittoSample.Logic
 {
     public interface ISMSLogic
     {
-        Task AddAsync(SMS sms);
+        Task AddAsync(string receiverNumber, string senderNumber, string text);
 
         Task<IEnumerable<SMS>> FilterAllAsync(DateTime fromDate, DateTime toDate, int skip, int take);
 

@@ -1,9 +1,6 @@
 using MittoSample.Logic;
 using MittoSample.ServiceModel;
-using MittoSample.ServiceModel.Types;
-using Org.BouncyCastle.Ocsp;
 using ServiceStack;
-using ServiceStack.Text;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -23,12 +20,7 @@ namespace MittoSample.ServiceInterface
 
         public async Task<SendSMSResponse> Get(SendSMS request)
         {
-            await _smsLogic.AddAsync(new SMS
-            {
-                Receiver = request.To,
-                Sender = request.From,
-                Text = request.Text
-            });
+            await _smsLogic.AddAsync(request.To, request.From, request.Text);
             return new SendSMSResponse { State = StateEnum.Success };
         }
 

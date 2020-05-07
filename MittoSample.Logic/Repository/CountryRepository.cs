@@ -1,9 +1,7 @@
-﻿using MittoSample.ServiceModel.Types;
+﻿using MittoSample.Model;
 using ServiceStack.Data;
 using ServiceStack.OrmLite;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MittoSample.Logic.Repository
