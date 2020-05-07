@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace MittoSample.Logic
 {
+    /// <summary>
+    /// The concrete implementation of ISMSLogic by using ISMSRepository and ICountryRepository operations, created solely for implementing purposes.
+    /// </summary>
     public class SMSLogic : ISMSLogic
     {
         private ISMSRepository _smsRepository { get; set; }
@@ -22,12 +25,16 @@ namespace MittoSample.Logic
 
         public async Task AddAsync(string receiverNumber, string senderNumber, string text)
         {
+            //Create SMS object
             var sms = new SMS { Receiver = receiverNumber, Sender = senderNumber, Text = text };
 
+            //Extract and set the MobileCountryCode based on the phone number of the receiver
             await ExtractMobileCountryCode(sms);
 
+            //Calling database insert operation
             await _smsRepository.AddAsync(sms);
 
+            //Now that the insert operation is complete, we'll use the following method to actually send the SMS to the receiver
             SendSMSDummyImplementation(sms);
         }
 
@@ -38,6 +45,10 @@ namespace MittoSample.Logic
             return result;
         }
 
+        /// <summary>
+        /// Searches for a Country with the CountryCode of the SMS receiver phone number and sets the MobileCountryCode for the SMS object
+        /// </summary>
+        /// <param name="sms">The SMS object containing receiver's phone number</param>
         private async Task ExtractMobileCountryCode(SMS sms)
         {
             var countryCode = sms.Receiver?.TrimStart('+', '0')?.Substring(0, 2);

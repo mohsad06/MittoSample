@@ -3,6 +3,9 @@ using System;
 
 namespace MittoSample.Model
 {
+    /// <summary>
+    /// The POCO class for County model, responsible for mapping data to database
+    /// </summary>
     public class Country
     {
         [AutoId]

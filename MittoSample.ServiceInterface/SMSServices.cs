@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace MittoSample.ServiceInterface
 {
+    /// <summary>
+    /// The service class responsible for handling SMSDto requests by usage of Logic layer.
+    /// </summary>
     public class SMSServices : Service
     {
         private ISMSLogic _smsLogic { get; set; }

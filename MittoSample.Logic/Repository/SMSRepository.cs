@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace MittoSample.Logic.Repository
 {
+    /// <summary>
+    /// The concrete implementation of ISMSRepository, created solely for implementing purposes.
+    /// </summary>
     public class SMSRepository : ISMSRepository
     {
         private IDbConnectionFactory _dbConnectionFactory { get; set; }

@@ -6,7 +6,6 @@ using Microsoft.Extensions.Hosting;
 using MittoSample.Helper;
 using MittoSample.Logic;
 using MittoSample.Logic.Repository;
-using MittoSample.Model;
 using MittoSample.ServiceInterface;
 using ServiceStack;
 using ServiceStack.Data;
@@ -41,7 +40,7 @@ namespace MittoSample
     {
         public AppHost() : base("MittoSample", typeof(SMSServices).Assembly) { }
 
-        // Configure your AppHost with the necessary configuration and dependencies your App needs
+        // Configure AppHost with the necessary configuration and dependencies
         public override void Configure(Container container)
         {
             SetConfig(new HostConfig
@@ -50,15 +49,20 @@ namespace MittoSample
                 DebugMode = AppSettings.Get(nameof(HostConfig.DebugMode), false),
             });
 
+            //Set database provider and connection string
             container.Register<IDbConnectionFactory>(c => new OrmLiteConnectionFactory(AppSettings.GetString("Database:MySqlDbConnection"), MySqlDialect.Provider));
 
+            //Registring dependencies from repository and logic layers
             container.RegisterAutoWiredAs<SMSRepository, ISMSRepository>().ReusedWithin(ReuseScope.None);
             container.RegisterAutoWiredAs<CountryRepository, ICountryRepository>().ReusedWithin(ReuseScope.None);
 
             container.RegisterAutoWiredAs<SMSLogic, ISMSLogic>().ReusedWithin(ReuseScope.None);
             container.RegisterAutoWiredAs<CountryLogic, ICountryLogic>().ReusedWithin(ReuseScope.None);
 
+
+            //Create database schema and insert default data
             Database.Create();
+            Database.AddDefaultData();
         }
     }
 }

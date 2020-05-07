@@ -1,14 +1,12 @@
 ﻿using MittoSample.Model;
-using ServiceStack.Auth;
 using ServiceStack.Data;
 using ServiceStack.OrmLite;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MittoSample.Helper
 {
+    /// <summary>
+    /// Responsible for creating database and adding default data to database tables.
+    /// </summary>
     internal class Database
     {
         private static IDbConnectionFactory _dbConnectionFactory { get; set; }
@@ -18,6 +16,9 @@ namespace MittoSample.Helper
             _dbConnectionFactory = dbConnectionFactory;
         }
 
+        /// <summary>
+        /// Creates database schema.
+        /// </summary>
         public static void Create()
         {
             using (var db = _dbConnectionFactory.OpenDbConnection())
@@ -26,18 +27,21 @@ namespace MittoSample.Helper
                     db.CreateTable<SMS>();
 
                 if (!db.TableExists<Country>())
-                {
                     db.CreateTable<Country>();
-
-                    #region AddDefaultCountries
-
-                    db.Insert(new Country { Name = "Germany", CountryCode = "49", MobileCountryCode = "262", PricePerSMS = 0.055m });
-                    db.Insert(new Country { Name = "Austria", CountryCode = "43", MobileCountryCode = "232", PricePerSMS = 0.053m });
-                    db.Insert(new Country { Name = "Poland", CountryCode = "48", MobileCountryCode = "260", PricePerSMS = 0.032m });
-
-                    #endregion
-                }
             }
-        } 
+        }
+
+        /// <summary>
+        /// Inserts default data to database tables
+        /// </summary>
+        public static void AddDefaultData()
+        {
+            using (var db = _dbConnectionFactory.OpenDbConnection())
+            {
+                db.Insert(new Country { Name = "Germany", CountryCode = "49", MobileCountryCode = "262", PricePerSMS = 0.055m });
+                db.Insert(new Country { Name = "Austria", CountryCode = "43", MobileCountryCode = "232", PricePerSMS = 0.053m });
+                db.Insert(new Country { Name = "Poland", CountryCode = "48", MobileCountryCode = "260", PricePerSMS = 0.032m });
+            }
+        }
     }
 }

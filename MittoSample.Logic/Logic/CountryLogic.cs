@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace MittoSample.Logic
 {
+    /// <summary>
+    /// The concrete implementation of ICountryLogic by using ICountryRepository operations, created solely for implementing purposes.
+    /// </summary>
     public class CountryLogic : ICountryLogic
     {
         private ICountryRepository _countryRepository { get; set; }

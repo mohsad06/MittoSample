@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MittoSample.ServiceInterface
 {
+    /// <summary>
+    /// The service class responsible for handling CountryDto requests by usage of Logic layer.
+    /// </summary>
     public class CountryServices : Service
     {
         private ICountryLogic _countryLogic { get; set; }

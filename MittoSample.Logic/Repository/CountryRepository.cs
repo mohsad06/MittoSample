@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MittoSample.Logic.Repository
 {
+    /// <summary>
+    /// The concrete implementation of ICountryRepository, created solely for implementing purposes.
+    /// </summary>
     public class CountryRepository : ICountryRepository
     {
         private IDbConnectionFactory _dbConnectionFactory { get; set; }
