@@ -4,8 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MittoSample.Helper;
-using MittoSample.Logic;
-using MittoSample.Logic.Repository;
+using MittoSample.Repository;
 using MittoSample.ServiceInterface;
 using ServiceStack;
 using ServiceStack.Data;
@@ -52,13 +51,9 @@ namespace MittoSample
             //Set database provider and connection string
             container.Register<IDbConnectionFactory>(c => new OrmLiteConnectionFactory(AppSettings.GetString("Database:MySqlDbConnection"), MySqlDialect.Provider));
 
-            //Registring dependencies from repository and logic layers
+            //Registring dependencies from repository layer
             container.RegisterAutoWiredAs<SMSRepository, ISMSRepository>().ReusedWithin(ReuseScope.None);
             container.RegisterAutoWiredAs<CountryRepository, ICountryRepository>().ReusedWithin(ReuseScope.None);
-
-            container.RegisterAutoWiredAs<SMSLogic, ISMSLogic>().ReusedWithin(ReuseScope.None);
-            container.RegisterAutoWiredAs<CountryLogic, ICountryLogic>().ReusedWithin(ReuseScope.None);
-
 
             //Create database schema and insert default data
             using (var db = container.Resolve<IDbConnectionFactory>().Open())

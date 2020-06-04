@@ -10,9 +10,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MittoSample.ServiceModel", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MittoSample.Tests", "MittoSample.Tests\MittoSample.Tests.csproj", "{455EC1EF-134F-4CD4-9C78-E813E4E6D8F6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MittoSample.Logic", "MittoSample.Logic\MittoSample.Logic.csproj", "{CC7B1E78-6C45-45C1-B88D-2A5CEF3468CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MittoSample.Repository", "MittoSample.Repository\MittoSample.Repository.csproj", "{CC7B1E78-6C45-45C1-B88D-2A5CEF3468CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MittoSample.Model", "MittoSample.Model\MittoSample.Model.csproj", "{EDF3BFAB-7C4A-40F8-9B41-1ABC31480686}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MittoSample.Model", "MittoSample.Model\MittoSample.Model.csproj", "{EDF3BFAB-7C4A-40F8-9B41-1ABC31480686}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

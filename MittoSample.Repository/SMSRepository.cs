@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MittoSample.Logic.Repository
+namespace MittoSample.Repository
 {
     /// <summary>
     /// The concrete implementation of ISMSRepository, created solely for implementing purposes.

@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MittoSample.Logic\MittoSample.Logic.csproj" />
+    <ProjectReference Include="..\MittoSample.Repository\MittoSample.Repository.csproj" />
     <ProjectReference Include="..\MittoSample.ServiceInterface\MittoSample.ServiceInterface.csproj" />
     <ProjectReference Include="..\MittoSample.ServiceModel\MittoSample.ServiceModel.csproj" />
   </ItemGroup>

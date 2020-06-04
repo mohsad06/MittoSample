@@ -4,7 +4,7 @@ using ServiceStack.OrmLite;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MittoSample.Logic.Repository
+namespace MittoSample.Repository
 {
     /// <summary>
     /// The concrete implementation of ICountryRepository, created solely for implementing purposes.

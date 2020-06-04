@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MittoSample.Logic.Repository
+namespace MittoSample.Repository
 {
     /// <summary>
-    /// The interface responsible for specifying data-related operations on Country and providing access to those operations to Logic layer.
+    /// The interface responsible for specifying data-related operations on Country and providing access to those operations to ServiceInterface layer.
     /// </summary>
     public interface ICountryRepository
     {
